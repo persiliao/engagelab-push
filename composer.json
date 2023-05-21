@@ -1,0 +1,36 @@
+{
+  "name": "engagelab/push",
+  "description": "Engagelab AppPush is a professional App message pushing service platform with a daily average message volume of over 10 billion, AppPush supports Android, iOS and other platforms.",
+  "keywords": [
+    "Engagelab",
+    "AppPush",
+    "极光推送",
+    "极光推送海外版",
+    "php",
+    "sdk"
+  ],
+  "homepage": "https://github.com/persiliao/engagelab-push",
+  "type": "library",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/persiliao/engagelab-push/issues",
+    "source": "https://github.com/persiliao/engagelab-push"
+  },
+  "authors": [
+    {
+      "name": "Persi.Liao",
+      "email": "xiangchu.liao@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PersiLiao\\Engagelab\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^6.5|^7.5",
+    "paragonie/constant_time_encoding": "^2.6",
+    "ext-json": "*"
+  }
+}
