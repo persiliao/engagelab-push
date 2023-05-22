@@ -63,6 +63,10 @@ class App {
      * @return string
      */
     public function getAuth(): string {
+        if (empty($this->auth)) {
+            throw new InvalidArgumentException("No authentication");
+        }
+
         return $this->auth;
     }
 
