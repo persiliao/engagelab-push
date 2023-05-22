@@ -4,7 +4,7 @@ namespace PersiLiao\Engagelab;
 
 class Push extends Service {
 
-    protected static string $service = "push";
+    protected static string $service = "/v4/push";
 
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException

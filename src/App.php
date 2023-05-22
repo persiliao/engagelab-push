@@ -7,7 +7,7 @@ use ParagonIE\ConstantTime\Base64;
 
 class App {
 
-    private string $domain = "https://push.api.engagelab.cc/v4";
+    private string $domain = "https://push.api.engagelab.cc/";
 
     private string $auth;
 
