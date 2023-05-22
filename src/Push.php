@@ -10,6 +10,12 @@ class Push extends Service {
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public static function send(array $body) {
-        return self::getHttpClient()->post(self::$service, ['body' => json_encode($body)]);
+        return self::getHttpClient()->post(self::$service, [
+            'body' => json_encode($body),
+            'headers' => [
+                'Accept' => 'application/json',
+                'Authorization' => sprintf("Basic %s", App::getInstance()->getAuth()),
+            ],
+        ]);
     }
 }
