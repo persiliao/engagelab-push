@@ -9,7 +9,9 @@ class App {
 
     private string $domain = "https://push.api.engagelab.cc/";
 
-    private string $auth;
+    private string $appKey;
+
+    private string $masterSecret;
 
     private static App $app;
 
@@ -18,7 +20,8 @@ class App {
      * @param  string  $masterSecret
      */
     private function __construct(string $appKey, string $masterSecret) {
-        $this->auth = $this->buildAuth($appKey, $masterSecret);
+        $this->appKey = $appKey;
+        $this->masterSecret = $masterSecret;
     }
 
     /**
@@ -43,16 +46,6 @@ class App {
     }
 
     /**
-     * @param  string  $appKey
-     * @param  string  $masterSecret
-     *
-     * @return string
-     */
-    private function buildAuth(string $appKey, string $masterSecret) {
-        return Base64::encode(implode(":", [$appKey, $masterSecret]));
-    }
-
-    /**
      * @return string
      */
     public function getDomain(): string {
@@ -62,15 +55,15 @@ class App {
     /**
      * @return string
      */
-    public function getAuth(): string {
-        if (empty($this->auth)) {
-            throw new InvalidArgumentException("No authentication");
-        }
-
-        return $this->auth;
+    public function getAppKey(): string {
+        return $this->appKey;
     }
 
-    public function buildServiceApiUrl(string ...$service) {
-        return implode("/", [$this->domain, $service]);
+    /**
+     * @return string
+     */
+    public function getMasterSecret(): string {
+        return $this->masterSecret;
     }
+
 }

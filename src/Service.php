@@ -7,12 +7,17 @@ use GuzzleHttp\Client;
 abstract class Service {
 
     protected static function getHttpClient(): Client {
+        $app = App::getInstance();
+
         return new Client([
-            'base_uri' => App::getInstance()->getDomain(),
+            'base_uri' => $app->getDomain(),
             'headers' => [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
-                'Authorization' => sprintf("Basic %s", App::getInstance()->getAuth()),
+            ],
+            'auth' => [
+                $app->getAppKey(),
+                $app->getMasterSecret(),
             ],
         ]);
     }
